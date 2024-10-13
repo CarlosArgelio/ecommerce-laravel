@@ -1,0 +1,25 @@
+version: '3.3'
+
+volumes:
+  postgres_data: {}
+
+services:
+  laravel_db:
+    image: postgres:15
+    environment:
+     - POSTGRES_DB=laravel
+     - POSTGRES_USER=postgres
+     - POSTGRES_PASSWORD=password
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+     - PGADMIN_DEFAULT_EMAIL=developer@mail.com
+     - PGADMIN_DEFAULT_PASSWORD=password
+    ports:
+      - "5050:5050"
+    depends_on:
+      - laravel_db
