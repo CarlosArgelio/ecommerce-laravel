@@ -1,4 +1,6 @@
 # ecommerce-laravel
 Ecommerce laravel project university
 
-# R
+# Migrations
+
+docker-compose exec php php /var/www/html/artisan migrate
