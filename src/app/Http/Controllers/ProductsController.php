@@ -12,4 +12,10 @@ class ProductsController extends Controller
         $products = Products::all();
         return view('productos.index', compact('products'));
     }
+
+    public function show($id)
+    {
+        $product = Products::findOrFail($id);
+        return view('productos.show', compact('product'));
+    }
 }
