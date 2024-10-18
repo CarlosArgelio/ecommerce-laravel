@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\Admin\ProductController as AdminProductsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +29,12 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
+    Route::resource('productos' , AdminProductsController::class);
+});
+
+// Route::patch('/productos/{id}/disable', [AdminProductsController::class, 'disable'])->name('productos.disable');
 
 Route::get('/productos', [ProductsController::class, 'index'])->name('productos');
 Route::get('/productos/{id}', [ProductsController::class, 'show'])->name('productos.show');
