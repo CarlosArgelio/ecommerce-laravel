@@ -21,6 +21,8 @@
                     </div>
                 </div>
             @endforeach
+
+            {{ $products->links() }}
         </div>
     </div>
 </x-app-layout>
