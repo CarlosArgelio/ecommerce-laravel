@@ -17,6 +17,7 @@
                         <p class="text-gray-600">Stock: {{ $product->stock }}</p>
                         <p class="text-gray-600">Status: {{ $product->status }}</p>
                         <p class="text-gray-600">SKU: {{ $product->sku }}</p>
+                        <p class="text-gray-600">Categoria: {{ $product->category->name }}</p>
                         <a href="{{ route('productos.show', $product->id) }}" class="mt-4 inline-block bg-blue-500 text-black px-4 py-2 rounded">Ver Detalle</a>
                     </div>
                 </div>

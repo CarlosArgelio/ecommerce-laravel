@@ -14,6 +14,7 @@
                 <p class="text-gray-600">Stock: {{ $product->stock }}</p>
                 <p class="text-gray-600">Status: {{ $product->status }}</p>
                 <p class="text-gray-600">SKU: {{ $product->sku }}</p>
+                <p class="text-gray-600">Categoria: {{ $product->category->name }}</p>
             </div>
         </div>
     </div>

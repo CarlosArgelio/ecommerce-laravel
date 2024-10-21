@@ -24,6 +24,7 @@ class ProductsFactory extends Factory
             'stock' => $this->faker->randomNumber(2),
             'status' => $this->faker->randomElement(['available', 'unavailable']),
             'sku' => $this->faker->unique()->slug,
+            'category_id' => \App\Models\Category::factory(),
         ];
     }
 }
