@@ -36,7 +36,9 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
 
 // Route::patch('/productos/{id}/disable', [AdminProductsController::class, 'disable'])->name('productos.disable');
 
-Route::get('/productos', [ProductsController::class, 'index'])->name('productos');
-Route::get('/productos/{slug}', [ProductsController::class, 'show'])->name('productos.show');
+Route::controller(ProductsController::class)->group(function () {
+    Route::get('/productos', 'index')->name('productos');
+    Route::get('/productos/{slug}', 'show')->name('productos.show');
+});
 
 require __DIR__.'/auth.php';
